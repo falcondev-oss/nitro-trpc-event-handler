@@ -2,7 +2,7 @@ import { resolveResponse } from '@trpc/server/http'
 
 import { defineEventHandler, setResponseStatus, toWebRequest } from 'h3'
 
-export function defineNitroTRPCEventHandler(
+export function defineTRPCEventHandler(
   opts: Pick<Parameters<typeof resolveResponse>[0], 'router' | 'onError' | 'createContext'>,
 ) {
   return defineEventHandler(async (event) => {
@@ -22,7 +22,7 @@ export function defineNitroTRPCEventHandler(
       req: toWebRequest(event),
     })
 
-    // allow handling event in trpc (eg sendRedirect or sendStream)
+    // allow handling event in trpc (e.g. sendRedirect or sendStream)
     if (event.handled) return
 
     return res
