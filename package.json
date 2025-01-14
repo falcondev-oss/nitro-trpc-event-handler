@@ -1,7 +1,7 @@
 {
   "name": "@falcondev-oss/nitro-trpc-event-handler",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "tRPC event handler for Nitro",
   "license": "Apache-2.0",
   "repository": "github:falcondev-oss/nitro-trpc-event-handler",
