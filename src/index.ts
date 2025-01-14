@@ -1,9 +1,12 @@
-import { resolveResponse } from '@trpc/server/http'
+import type { H3Event } from 'h3'
 
+import { resolveResponse } from '@trpc/server/http'
 import { defineEventHandler, setResponseStatus, toWebRequest } from 'h3'
 
 export function defineTRPCEventHandler(
-  opts: Pick<Parameters<typeof resolveResponse>[0], 'router' | 'onError' | 'createContext'>,
+  opts: Pick<Parameters<typeof resolveResponse>[0], 'router' | 'onError'> & {
+    createContext: (event: H3Event) => Promise<any>
+  },
 ) {
   return defineEventHandler(async (event) => {
     if (event.method === 'OPTIONS') {
@@ -17,6 +20,8 @@ export function defineTRPCEventHandler(
 
     const res = await resolveResponse({
       ...opts,
+      // eslint-disable-next-line ts/no-unsafe-return
+      createContext: async () => opts.createContext(event),
       error: null,
       path,
       req: toWebRequest(event),
