@@ -1,0 +1,54 @@
+{
+  "name": "@falcondev-oss/nitro-trpc-event-handler",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "tRPC event handler for Nitro",
+  "license": "Apache-2.0",
+  "repository": "github:falcondev-oss/nitro-trpc-event-handler",
+  "bugs": {
+    "url": "https://github.com/falcondev-oss/nitro-trpc-event-handler/issues"
+  },
+  "keywords": [
+    "nitro",
+    "trpc",
+    "typescript"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "22",
+    "pnpm": "9"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint --cache . && prettier --check --cache .",
+    "lint:ci": "eslint --cache --cache-strategy content . && prettier --check --cache --cache-strategy content .",
+    "lint:fix": "eslint --fix --cache . && prettier --write --cache .",
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@trpc/server": "11.0.0-rc.700",
+    "h3": "^1.13.1"
+  },
+  "devDependencies": {
+    "@louishaftmann/eslint-config": "^4.1.0",
+    "@louishaftmann/prettier-config": "^4.1.0",
+    "@trpc/server": "11.0.0-rc.700",
+    "eslint": "^9.18.0",
+    "prettier": "^3.4.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
+  },
+  "changelogithub": {
+    "extends": "gh:falcondev-it/configs/changelogithub"
+  }
+}
