@@ -1,6 +1,6 @@
 # tRPC Nitro Event Handler
 
-[tRPC](https://trpc.io/docs/) event handler for [Nitro](https://nitro.build/) with support for Nitro's helper functions (e.g. `sendStream` or `sendRedirect`). 
+[tRPC](https://trpc.io/docs/) event handler for [Nitro](https://nitro.build/) with support for Nitro's helper functions (e.g. `sendStream` or `sendRedirect`).
 Also works with any Nitro based framework like [Nuxt](https://nuxt.com/) or [SolidStart](https://start.solidjs.com/).
 
 > [!WARNING]
@@ -27,7 +27,6 @@ export default defineTRPCEventHandler({
     return {
       event,
     }
-  }
+  },
 })
-
 ```
